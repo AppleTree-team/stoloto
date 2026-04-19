@@ -1,0 +1,6 @@
+[submodule "stoloto-backend"]
+	path = stoloto-backend
+	url = git@github.com:AppleTree-team/stoloto-backend.git
+[submodule "stoloto-frontend"]
+	path = stoloto-frontend
+	url = git@github.com:AppleTree-team/stoloto-frontend.git
