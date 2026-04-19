@@ -1,0 +1,17 @@
+include:
+  - ./stoloto-frontend/docker-compose.yaml
+  - ./stoloto-backend/docker-compose.yaml
+
+services:
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "8090:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      frontend_service:
+        condition: service_started
+      fastapi_service:
+        condition: service_healthy   # требует наличия healthcheck в backend
+    restart: unless-stopped
